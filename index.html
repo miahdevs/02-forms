@@ -115,7 +115,7 @@
               type="checkbox"
               id="fries"
               name="sides"
-              value="fries"
+              value="Fries"
             />
             <label for="fries">Fries</label>
           </div>
@@ -156,6 +156,7 @@
             <label for="no-sides">No sides</label>
           </div>
         </div>
+        <input type="hidden" name="sides-arr" id="sides-arr">
 
         <div class="input-group">
           <label for="spice-level">Preferred spice level:</label>
@@ -193,6 +194,15 @@
 
         <button id="submit" type="submit">Submit</button>
       </form>
+
+      <script>
+        document.getElementById('survey-form').addEventListener('submit', function(event) {
+            const checkedBoxes = document.querySelectorAll('input[name="sides"]:checked');
+            const selectedSides = Array.from(checkedBoxes).map(checkbox => checkbox.value);
+            const sidesString = selectedSides.join(', ');
+            document.getElementById('sides-arr').value = sidesString;
+        });
+      </script>
     </main>
   </body>
 </html>
