@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch 37 | JJOA | The Fried Chicken Survey</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <main id="main" class="container">
+      <h1 id="title">Thank you for answering the Fried Chicken Survey</h1>
+      <p id="description">Your responses have been recorded below:</p>
+      <div id="results">
+        <p id="name">
+          <strong>Name: </strong><br /><span class="response"></span>
+        </p>
+        <p id="email">
+          <strong>Email: </strong><br /><span class="response"></span>
+        </p>
+        <p id="number">
+          <strong>How many times do you eat fried chicken per month? </strong
+          ><br /><span class="response"></span>
+        </p>
+        <p id="chicken-type">
+          <strong>What is your favorite type of fried chicken? </strong
+          ><br /><span class="response"></span>
+        </p>
+        <p id="frequency">
+          <strong>How often do you eat fried chicken?</strong><br /><span
+            class="response"
+          ></span>
+        </p>
+        <p id="sides">
+          <strong>Preferred fried chicken sides:</strong><br /><span
+            class="response"
+          ></span>
+        </p>
+        <p id="comments">
+          <strong>Additional Comments</strong><br /><span
+            class="response"
+          ></span>
+        </p>
+        <a id="submit" href="index.html">Submit another response</a>
+      </div>
+    </main>
+    <script>
+      window.onload = function () {
+        // Function to parse query parameters
+        function getQueryParams() {
+          let params = {};
+          let queryString = window.location.search.slice(1); // Remove the '?' at the start
+          let pairs = queryString.split("&");
+
+          pairs.forEach(function (pair) {
+            let [key, value] = pair.split("=");
+            value = decodeURIComponent(value.replace(/\+/g, " ")); // Decode and handle spaces
+            params[key] = value;
+          });
+
+          return params;
+        }
+
+        // Function to fill in the HTML elements
+        function populateResults(params) {
+          for (let key in params) {
+            if (params.hasOwnProperty(key)) {
+              let element = document.querySelector(`#${key} .response`);
+              if (element) {
+                element.innerText = params[key];
+              }
+            }
+          }
+        }
+
+        // Get the query parameters and populate the results
+        let queryParams = getQueryParams();
+        populateResults(queryParams);
+      };
+    </script>
+  </body>
+</html>

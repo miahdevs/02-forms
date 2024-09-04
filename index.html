@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch 37 | JJOA | The Fried Chicken Survey</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <main id="main" class="container">
+      <h1 id="title">The Fried Chicken Survey</h1>
+      <p id="description">
+        This is a survey about the consumption of fried chicken.
+      </p>
+      <form id="survey-form" action="thankyou.html" method="GET">
+        <div class="input-group">
+          <label id="name-label" for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label id="email-label" for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label id="number-label" for="number"
+            >How many times do you eat fried chicken per month?</label
+          >
+          <input
+            type="number"
+            id="number"
+            name="number"
+            placeholder="Enter a number"
+            min="0"
+            max="31"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="chicken-type"
+            >What is your favorite type of fried chicken?</label
+          >
+          <select id="dropdown" name="chicken-type">
+            <option value="Crispy">Crispy</option>
+            <option value="Spicy">Spicy</option>
+            <option value="Baked">Baked</option>
+            <option value="Boneless">Boneless</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>How often do you eat fried chicken?</label>
+          <div class="radio-options">
+            <div class="input radio">
+              <input
+                type="radio"
+                id="daily"
+                name="frequency"
+                value="Daily"
+                required
+              />
+              <label for="daily">Daily</label>
+            </div>
+            <div class="input radio">
+              <input
+                type="radio"
+                id="weekly"
+                name="frequency"
+                value="Weekly"
+                required
+              />
+              <label for="weekly">Weekly</label>
+            </div>
+            <div class="input radio">
+              <input
+                type="radio"
+                id="monthly"
+                name="frequency"
+                value="Monthly"
+                required
+              />
+              <label for="monthly">Monthly</label>
+            </div>
+            <div class="input radio">
+              <input
+                type="radio"
+                id="rarely"
+                name="frequency"
+                value="Rarely"
+                required
+              />
+              <label for="rarely">Rarely</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Preferred fried chicken sides (select all that apply):</label>
+          <div class="input checkbox">
+            <input
+              type="checkbox"
+              id="fries"
+              name="sides"
+              value="fries"
+            />
+            <label for="fries">Fries</label>
+          </div>
+          <div class="input checkbox">
+            <input
+              type="checkbox"
+              id="coleslaw"
+              name="sides"
+              value="Coleslaw"
+            />
+            <label for="coleslaw">Coleslaw</label>
+          </div>
+          <div class="input checkbox">
+            <input
+              type="checkbox"
+              id="biscuits"
+              name="sides"
+              value="Biscuits"
+            />
+            <label for="biscuits">Biscuits</label>
+          </div>
+          <div class="input checkbox">
+            <input
+              type="checkbox"
+              id="mashed-potatoes"
+              name="sides"
+              value="Mashed potatoes"
+            />
+            <label for="mashed-potatoes">Mashed Potatoes</label>
+          </div>
+          <div class="input checkbox">
+            <input
+              type="checkbox"
+              id="no-sides"
+              name="sides"
+              value="No sides"
+            />
+            <label for="no-sides">No sides</label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="spice-level">Preferred spice level:</label>
+          <input
+            type="range"
+            id="spice-level"
+            name="spice-level"
+            min="1"
+            max="5"
+            step="1"
+          />
+          <div class="range-labels" id="range-labels"></div>
+          <script>
+            const rangeInput = document.getElementById("spice-level");
+            const rangeLabels = document.getElementById("range-labels");
+
+            // Create labels
+            for (let i = 1; i <= 5; i++) {
+              const label = document.createElement("span");
+              label.textContent = i;
+              rangeLabels.appendChild(label);
+            }
+          </script>
+        </div>
+
+        <div class="input-group">
+          <label for="comments">Additional comments:</label>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="4"
+            placeholder="Add additional comments here"
+          ></textarea>
+        </div>
+
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
